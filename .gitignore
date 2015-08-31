@@ -1,1 +1,6 @@
+#Emacs backup files
 *~
+
+#latex output files
+*.aux
+*.log

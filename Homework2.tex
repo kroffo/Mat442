@@ -1,0 +1,80 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\usepackage{tikz,pgfplots}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Complex Analysis}
+\subtitle{Homework 2: 1.2) 20, 32, 48}
+\author{Kenny Roffo}
+\date{Due August 31, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{20)} Describe the set of points $z$ in the complex plane that satisfy the equation $\bar{z}=z^{-1}$. Include a plot of the set of points in the complex plane.\\
+
+\begin{minipage}{0.45\linewidth}
+Let $z=x+iy$. We see
+\begin{align*}
+  \bar{z} = z^{-1} &\iff x-yi = \frac{1}{x+yi}\\
+  &\iff (x-yi)(x+yi) = 1\\
+  &\iff x^2 + y^2 = 1
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+  \begin{tikzpicture}
+    \begin{axis}[axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}, xmin=-10, ymin=-10, xmax=10, ymax=10]
+    \end{axis}
+  \end{tikzpicture}
+\end{minipage}\\
+
+\textbf{32)} Find a number $z=x+iy$ that satisfies the equation $|z|^2+1+12i=6z$.\\
+
+\begin{align*}
+  &|z|^2+1+12i=6z\\
+  \implies &x^2 + y^2 + 1 + 12i = 6x + 6yi\\
+  \implies &(x^2 + y^2 - 6x + 1) + (12 - 6y)i = 0 + 0i
+\end{align*}
+
+By the definition of equality of complex numbers, we have
+
+\begin{displaymath}
+  x^2 + y^2 - 6x + 1 = 0 \text{\hspace{1in} and \hspace{1in}} 12-6y = 0
+\end{displaymath}
+
+Using the second equation, we find the value of $y$:
+
+\begin{align*}
+  &12-6y = 0\\
+  \implies &12 = 6y\\
+  \implies &2 = y
+\end{align*}
+
+And plugging into the first equation we find $x$:
+
+\begin{align*}
+  &x^2 + y^2 -6x + 1 = 0\\
+  \implies &x^2 + 4 - 6x + 1 = 0\\
+  \implies &(x-5)(x-1) = 0\\
+  \implies &x \in \{1,5\}
+\end{align*}
+
+Therefore, we can choose either of two values for $x$ to find a $z$, and thus the number $z=1+2i$ satisfies the equation $|z|^2+1+12i=6z$.\\
+
+\textbf{48)} For any two comlex numbers $z_1$ and $z_2$, show that
+\begin{displaymath}
+  |z_1 + z_2|^2 + |z_1 - z_2|^2 =2(|z_1|^2 + |z_2|^2)
+\end{displaymath}
+
+Let $z_1=x_1+y_1i$ and $z_2=x_2+y_2i$ be complex numbers. We see
+\begin{align*}
+  |z_1+z_2|^2 + |z_1 - z_2|^2 &= |(x_1+x_2)-(y_1+y_2)i|^2 + |(x_1-x_2)+(y_1-y_2)i|^2\\
+  &= (x_1+x_2)^2 + (y_1+y_2)^2 + (x_1-x_2)^2 + (y_1-y_2)^2\\
+  &= x_1^2 + 2x_1x_2 +x_2^2 + y_1^2 + 2y_1y_2 + y_2^2 + x_1^2 - 2x_1x_2 + x_2^2 + y_1^2 - 2y_1y_2 + y_2^2\\
+  &= 2x_1^2 + 2y_1^2 + 2x_2^2 + 2y_2^2\\
+  &=2\left(\sqrt{x_1^2 + y_1^2}^2 + \sqrt{x_2^2 + y_2^2}^2\right)\\
+  &=2\left(|z_1|^2 + |z_2|^2\right)
+\end{align*}
+
+That is, $|z_1+z_2|^2 + |z_1 - z_2|^2 = 2\left(|z_1|^2 + |z_2|^2\right)$.
+\end{document}
