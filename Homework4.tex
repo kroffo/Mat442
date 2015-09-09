@@ -1,0 +1,39 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+\usepackage{tikz,pgfplots}
+
+\title{Complex Analysis}
+\subtitle{Homework 4: 1.5) 12, 20, 46a}
+\author{Kenny Roffo}
+\date{Due September 9, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{12)} Sketch the graph of the given equation in the complex plane: $\text{arg}(z)=\pi/4$\\
+
+This is simply the positive portion of the line $y=x$, as this is the set of $z$ which have an angle of $\pi/4$ above the $x$-axis.
+
+\begin{centering}\begin{tikzpicture}
+  \begin{axis}[axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}, xmin=-10, ymin=-10, xmax=10, ymax=10]
+  \end{axis}
+\end{tikzpicture}\\
+\end{centering}
+\pagebreak
+
+\textbf{20)} Sketch the set $S$ of points in the complex plane satisfying $\text{Im}(z)<\text{Re}(z)$. Determine whether the set is open, closed, a domain or connected.\\
+
+\begin{centering}\begin{tikzpicture}
+  \begin{axis}[axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}, xmin=-10, ymin=-10, xmax=10, ymax=10]
+  \end{axis}
+\end{tikzpicture}\\
+\end{centering}
+\ \\
+This set is open, and connected, but not closed, therefore it is a domain.\\
+
+\textbf{46a)} Suppose $S_1$ and $S_2$ are open sets in the complex plane. Is the union $S_1 \cup S_2$ an open set?\\
+
+Yes. Let $z \in S_1 \cup S_2$. Then either $z \in S_1$ or $z \in S_2$. Without loss of generality, assume $z \in S_1$. Then $z$ is an interior point, since $S_1$ is an open set, and thus there exists a neighbor hood of $z$ entirely contained in $S_1$. But since all points in $S_1$ are in $S_1 \cup S_2$, such a neighborhood also lies entirely in $S_1 \cup S_2$, thus $z$ is an interior point of $S_1 \cup S_2$. This implies that every point in $S_1 \cup S_2$ is an interior point, thus $S_1 \cup S_2$ is an open set.
+
+\end{document}
