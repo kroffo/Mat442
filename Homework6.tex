@@ -1,0 +1,88 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+\usepackage{tikz,pgfplots}
+
+\title{Complex Analysis}
+\subtitle{Homework 6: 2.2) 4, 18, 27}
+\author{Kenny Roffo}
+\date{Due September 21, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{4)} Find the image $S'$ of the set $S=\{z|2\le\text{Re}(z)\le3\}$ under the complex mapping $f(z)=3iz$.\\
+
+Let $z=x+iy$ be an element of $S$. We see
+\begin{align*}
+f(z) &= 3iz\\
+     &= 3i(x+iy)\\
+     &= -3y + i3x
+\end{align*}
+Since $2\le x \le 3$ we have that $6\le\text{Im}(f(z))\le9$, and there is no restriction on $y$, so the image of $S$ under $f(z)=3iz$ is $$S'=\{z|6\le\text{Im}(z)\le9\}$$\pagebreak
+
+\textbf{18a)} Plot the parametric curve $C$ given by $z(t)=i+e^{it}, 0 \le t \le \pi$ and describe the curve in words.\\
+
+Note that $z(t)$ can be rewritten as 
+\begin{align*}
+z(t) &= i+\cos(t)+i\sin(t)\\
+     &= \cos(t) + i(1 + \sin(t))
+\end{align*}
+This is familiar as it is the equation of a circle with a 1 added to the imaginary part. Thus, $z(t)$ for $0 \le t \le \pi$ forms the top half of a circle of radius 1 centered at $(0,1)$.
+
+\begin{centering}\begin{tikzpicture}
+  \begin{axis}[axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}, xmin=-2, ymin=-2, xmax=2, ymax=3]
+  \end{axis}
+\end{tikzpicture}\\
+\end{centering}\ \\
+
+\textbf{18b)} Find the parametrization of the image $C'$ of $C$ under the mapping $f(z)=(z-i)^2$\\
+
+\begin{align*}
+f(z(t)) &= ((i+e^{it})-1)^2\\
+        &= e^{2it}
+\end{align*}
+
+Thus the curve $C'$ is given by $f(z(t))=e^{2it}$\pagebreak
+
+\textbf{18c)} Plot the parametric curve $C'$ found in part b and describe the curve in words.\\
+
+Note that $C'$ can be represented by
+$$e^{2it} = \cos(2t) + i\sin(2t)$$
+since $0 \le t \le \pi$, this forms a full circle centered at the origin of radius 1.
+
+\begin{centering}\begin{tikzpicture}
+  \begin{axis}[axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}, xmin=-2, ymin=-2, xmax=2, ymax=2]
+  \end{axis}
+\end{tikzpicture}\\
+\end{centering}\ \\
+\textbf{27)} In this problem we find the image of the line $x=1$ under the complex mapping $w=1/z$\\
+
+\textbf{a.} The line $x=1$ consists of all points $z=1+iy$ where $-\infty < y < \infty$. Find the real and imaginary parts $u$ and $v$ of $f(z)=1/z$ at a point $z=1+iy$ on this line.\\
+
+\begin{align*}
+f(1+iy) &= \frac{1}{1+iy}\\
+        &= \frac{1-iy}{(1+iy)(1-iy)}\\
+        &= \frac{1-iy}{1+y^2}\\
+        &= \frac{1}{1+y^2}+i\frac{-y}{1+y^2}
+\end{align*}
+Thus we have $\text{Re}(f(1+iy))=\frac{1}{1+y^2}$ and $\text{Im}(f(1+iy))=-\frac{y}{1+y^2}$.\pagebreak
+
+\textbf{b.} Show that $\left(u-\frac{1}{2}\right)^2+v^2=\frac{1}{4}$ for the functions $u$ and $v$ from part \textbf{a}.\\
+
+$u=\frac{1}{1+y^2}$ and $v=-\frac{y}{1+y^2}$. Plugging in, we have
+\begin{align*}
+\left(u-\frac{1}{2}\right)^2+v^2 &= \left(\frac{1}{1+y^2}-\frac{1}{2}\right)^2+\left(-\frac{y}{1+y^2}\right)^2\\
+                                 &= \frac{1}{\left(y^2+1\right)^2} - \frac{1}{y^2+1} + \frac{1}{4} + \frac{y^2}{\left(y^2+1\right)^2}\\
+                                 &= \frac{y^2+1}{\left(y^2+1\right)^2} - \frac{1}{y^2+1} + \frac{1}{4}\\
+                                 &= \frac{1}{4}
+\end{align*}
+
+\textbf{c.} Based on part \textbf{b}, describe the image of the line $x=1$ under the complex mapping $w=1/z$\\
+
+The equation from part \textbf{b} is that of a circle centered at $(\frac{1}{2},0)$ with radius $\frac{1}{2}$\\
+
+\textbf{d.} Is there a point on the line $x=1$ that maps onto 0? Do you want to alter your description of the image in part \textbf{c}?\\
+
+If there were a point which mapped to 0, that would imply that 0 times some number would equal something non-zero, which is a contradiction. Therefore I would like to alter myanswer from part \textbf{c} to be the same, but without the point $(0,0)$. 
+\end{document}
