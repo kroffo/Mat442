@@ -16,14 +16,34 @@ Let $z=x+iy$ be any point in the complex plain, and let $\Delta z = \Delta x + i
 
 Then 
 \begin{align*}
-f(z+\Delta z) - f(z) &= |z + \Delta z| - |z|\\
-                     &= |x + iy + \Delta x + i \Delta y| - |x + iy|\\
-                     &= |x + \Delta x + i(y + \Delta y)| - |x + iy|\\
-                     &= \sqrt{(x+\Delta x)^2 + (y+\Delta y)^2} - \sqrt{x^2 + y^2}\\
-                     &= \sqrt{x^2 + 2x\Delta x + \Delta x^2 + y^2 + 2y\Delta y + \Delta y^2} - \sqrt{x^2 + y^2}
+  \frac{f(z+\Delta z) - f(z)}{\Delta z} &= \frac{|z + \Delta z| - |z|}{\Delta z}\\
+  &= \frac{|z + \Delta z| - |z|}{\Delta z} \cdot \frac{|z + \Delta z| + |z|}{|z + \Delta z| + |z|}\\
+  &= \frac{|z + \Delta z|^2 - |z|^2}{\Delta z (|z + \Delta z|^2 + |z|^2)}\\
+  &= \frac{(z + \Delta z)\overline{(z + \Delta z)} - z\overline{z}}{\Delta z(|z + \Delta z| + |z|)}\\
+  &= \frac{z\overline{z} + z\overline{\Delta z} + \overline{z}\Delta z + \Delta z \overline{\Delta z} - z\overline{z}}{\Delta z(|z + \Delta z| + |z|)}\\
+  &= \frac{z\overline{\Delta z} + \overline{z}\Delta z + \Delta z \overline{\Delta z}}{\Delta z(|z + \Delta z| + |z|)}\\
+  &= \frac{z\overline{\Delta z} + \overline{z\overline{\Delta z}} + \Delta z \overline{\Delta z}}{\Delta z(|z + \Delta z| + |z|)}\\
+  &= \frac{2\text{Re}(z\overline{\Delta z}) + \Delta z \overline{\Delta z}}{\Delta z(|z + \Delta z| + |z|)}\\
+  &= \frac{2(x\Delta x + y\Delta y) + \Delta x^2 + \Delta y^2}{(x + iy)(\sqrt{(x + \Delta x)^2+(y + \Delta y)^2} + \sqrt{x^2 + y^2})}\\
 \end{align*}
  
-Having a \emph{lot} of trouble on this one.\\
+That is, $\frac{f(z+\Delta z) - f(z)}{\Delta z} = \frac{2(x\Delta x + y\Delta y) + \Delta x^2 + \Delta y^2}{(x + iy)(\sqrt{(x + \Delta x)^2+(y + \Delta y)^2} + \sqrt{x^2 + y^2})}$. Now consider the limit as $\Delta z$ goes to 0 of this fraction. First, let us approach along a line parallel to the real axis. Then $\Delta y = 0$, and we have
+
+\begin{align*}
+  \lim_{\Delta x \rightarrow 0} \frac{2x\Delta x + \Delta x^2}{\Delta x (\sqrt{(x + \Delta x)^2 + y^2} + \sqrt{x^2 + y^2})} &= \lim_{\Delta x \rightarrow 0}\frac{2x + \Delta x}{(\sqrt{(x+\Delta x)^2 + y^2} + \sqrt{x^2 + y^2})}\\
+  &= \frac{2x}{\sqrt{x^2 + y^2} + \sqrt{x^2 + y^2}}\\
+  &= \frac{x}{\sqrt{x^2 + y^2}}
+\end{align*}
+
+That is, $\lim_{\Delta x \rightarrow 0} \frac{2x\Delta x + \Delta x^2}{\Delta x (\sqrt{(x + \Delta x)^2 + y^2} + \sqrt{x^2 + y^2})} = \frac{x}{\sqrt{x^2 + y^2}}$. Now let us approach along a line parallel to the imaginary axis. Then $\Delta x = 0$, and we have
+
+\begin{align*}
+  \lim_{\Delta y \rightarrow 0} \frac{2y\Delta y + \Delta y^2}{i\Delta y (\sqrt{x^2 + (y + \Delta y)^2} + \sqrt{x^2 + y^2})} &= \lim_{\Delta y \rightarrow 0}\frac{2y + \Delta y}{i(\sqrt{x^2 + (y+\Delta y)^2} + \sqrt{x^2 + y^2})}\\
+  &= \frac{2y}{i(\sqrt{x^2 + y^2} + \sqrt{x^2 + y^2})}\\
+  &= \frac{y}{i\sqrt{x^2 + y^2}}
+\end{align*}
+
+That is, $\lim_{\Delta y \rightarrow 0} \frac{2y\Delta y + \Delta y^2}{i\Delta y (\sqrt{x^2 + (y + \Delta y)^2} + \sqrt{x^2 + y^2})} = \frac{y}{i\sqrt{x^2 + y^2}}$. So approaching along a line parallel to the real axis we get a real number as the limit, but approaching along a line parallel to the imaginary axis we get an imaginary number. No real number is equal to an imaginary number, so this means the limit does not exist, and since $z$ was an arbitrary complex number, this implies the limit does not exist for any complex number, so the function $f(z) = |z|$ is nowhere differentiable.\\
 
 \textbf{32)} Prove that $\od{}{z}[f(z) + g(z)] = f'(z) + g'(z)$.\\
 
