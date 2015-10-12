@@ -1,0 +1,77 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Complex Analysis}
+\subtitle{Homework 9: 3.1) 47, 52}
+\author{Kenny Roffo}
+\date{Due October 5, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{20)} Consider the limit $\lim_{z\rightarrow0} \left(\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i\right)$
+
+\textbf{a.} What value does the limit approach as $z$ approaches along the line $y=x$?\\
+
+  Along the line $y=x$ the function becomes 
+\begin{align*}
+\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i &= \frac{2x^2}{x^2} - \frac{x^2 - x^2}{x^2}i\\
+                                         &= 2 - 0i\\
+\end{align*}
+Thus the limit $\lim_{z\rightarrow0} \left(\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i\right)$ as $z$ approaches along the line $y=x$ is $2-0i$.\\
+
+\textbf{b.} What value does the limit approach as $z$ approaches 0 along the line $y=-x$?\\
+
+  Along the line $y=-x$, we know that $y^2=x^2$, and the same thing happens as in part a, and we find that the limit $\lim_{z\rightarrow0} \left(\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i\right)$ as $z$ approaches along the line $y=-x$ is $2-0i$.\\
+
+\textbf{c.} Do the answers from parts a and b imply that the limit exists?\\
+
+  Of course not! The limit only exists if it is the same along every possible path.\\
+
+\textbf{d.} What value does the limit approach as $z$ approaches 0 along the line $y=2x$?\\
+
+  Along the line $y=2x$, $y^2=4x^2$ and the function becomes $\frac{8x^2}{x^2} - \frac{x^2 - 4x^2}{4x^2}i$. To solve for this limit, we will have to make use of L'Hospital's Rule on the real an imaginary parts. First we look at the real part.
+\begin{align*}
+  \lim_{z\rightarrow0}\frac{8x^2}{x^2} &= \lim_{z\rightarrow0}\frac{16x}{2x} \text{\hspace{1in} By L'Hospital's Rule}\\
+                                    &= \lim_{z\rightarrow0}\frac{16}{2} \text{\hspace{1in} By L'Hopital's Rule}\\
+                                    &= 8
+\end{align*}
+
+Now we apply L'Hopital's Rule to find the limit of the imaginary part:
+\begin{align*}
+  \lim_{z\rightarrow0} \frac{x^2 - 4x^2}{4x^2}i &= \lim_{z\rightarrow0} \frac{-6x}{8x}i \text{\hspace{1in} By L'Hospital's Rule}\\
+                                             &= \lim_{z\rightarrow0} \frac{-6}{8}i \text{\hspace{1in} By L'Hospital's Rule}\\
+                                             &= -\frac{3}{4}
+\end{align*}
+
+Synthesizing these results, we find that $\lim_{z\rightarrow0} \left(\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i\right)$ as $z$ approaches along the line $y=2x$ is $8 - \frac{3}{4}i$.
+
+\textbf{e.} What can you say about $\lim_{z\rightarrow0} \left(\frac{2y^2}{x^2} - \frac{x^2 - y^2}{y^2}i\right)$.\\
+
+Since the limit is not the same across every path of approach, the limit does not exist.\\
+
+\textbf{30)} Show that $f(z) = \frac{z-3i}{z^2+2z-1}$ is continuous at the point $z_0 = 1 + i$.\\
+
+Since $f(z)$ is a rational function, we know it is continuous at all points. Thus, $f(z)$ is continuous at $z_0$.\\
+
+\textbf{40)} Show that the $f(z) = 
+\begin{cases} 
+  \frac{z}{|z|} & z\ne0 \\
+  1 & z = 0
+\end{cases}$
+is discontinuous at $z=0$.\\
+
+Consider the limit as $z$ approaches along the line $y=x$. We have
+\begin{align*}
+  \lim_{z\rightarrow0}f(z) &= \lim_{z\rightarrow0}\frac{x + iy}{|x + iy|}\\
+                         &= \lim_{z\rightarrow0}\frac{x + ix}{|x + ix|}\\
+                         &= \lim_{z\rightarrow0}\frac{x + ix}{\sqrt{x^2 + x^2}}\\
+                         &= \lim_{z\rightarrow0}\frac{x + ix}{\sqrt{2}x}\\
+                         &= \lim_{z\rightarrow0}\frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}}\\
+                         &= \frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}}
+\end{align*}
+
+Therefore, if the limit exists it must be $\frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}}$, and if it does not exist, then $f(z)$ is discontinuous at $z_0=0$. Assuming, however, that it does exist, we see $\frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}} \ne 0 = f(z_0)$, and thus $f(z)$ is discontinuous at $z_0$. Therefore, no matter what the case, $f(z)$ is discontinuous at $z_0$.
+
+\end{document}

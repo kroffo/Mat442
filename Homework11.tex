@@ -1,0 +1,54 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Complex Analysis}
+\subtitle{Homework 11: 3.2) 22, 32, 38}
+\author{Kenny Roffo}
+\date{Due October 12, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{22)} Show that the function $f(z)=|z|$ is nowhere differentiable.\\
+
+Let $z=x+iy$ be any point in the complex plain, and let $\Delta z = \Delta x + i \Delta y$.
+
+Then 
+\begin{align*}
+f(z+\Delta z) - f(z) &= |z + \Delta z| - |z|\\
+                     &= |x + iy + \Delta x + i \Delta y| - |x + iy|\\
+                     &= |x + \Delta x + i(y + \Delta y)| - |x + iy|\\
+                     &= \sqrt{(x+\Delta x)^2 + (y+\Delta y)^2} - \sqrt{x^2 + y^2}\\
+                     &= \sqrt{x^2 + 2x\Delta x + \Delta x^2 + y^2 + 2y\Delta y + \Delta y^2} - \sqrt{x^2 + y^2}
+\end{align*}
+ 
+Having a \emph{lot} of trouble on this one.\\
+
+\textbf{32)} Prove that $\od{}{z}[f(z) + g(z)] = f'(z) + g'(z)$.\\
+
+Let $z=x+iy$ be a complex number and let $f$ and $g$ be functions differentiable at $z$. Then $lim_{\Delta z \rightarrow 0}\frac{f(z + \Delta z) - f(z)}{\Delta z} = f'(z)$ and $lim_{\Delta z \rightarrow 0}\frac{g(z + \Delta z) - g(z)}{\Delta z} = g'(z)$ exist. We see
+\begin{align*}
+  lim_{\Delta z \rightarrow 0}\frac{f(z + \Delta z) + g(z + \Delta z) - f(z) - g(z)}{\Delta z} &= lim_{\Delta z \rightarrow 0}\left(\frac{f(z + \Delta z) - f(z)}{\Delta z} + \frac{g(z + \Delta z) - g(z)}{\Delta z}\right)\\
+  &= lim_{\Delta z \rightarrow 0}\left(\frac{f(z + \Delta z) - f(z)}{\Delta z}\right)\\
+  &+ lim_{\Delta z \rightarrow 0}\left(\frac{g(z + \Delta z) - g(z)}{\Delta z}\right)\\
+  &= f'(z) + g'(z)
+\end{align*} 
+
+Therefore, since f'(z) and g'(z) exist, the limit exists, and thus the derivative of the sum of functions is the sum of their derivatives (at a point $z$).\\
+
+\textbf{38 a)} Let $f(z) = z^2$. Write down the real and imaginary parts of $f$ and $f'$. What do you observe?\\
+
+Re$(f) = x^2 - y^2$ and Im$(f) = 2ixy$. Also, Re$(f') = 2x$ and Im$(f') = 2iy$. I notice that the real and imaginary parts of $f'$ are the derivative with respect to $x$ of the real and imaginary parts of $f$.\\
+
+\textbf{38 b)} Repeat part \textbf{a} for $f(z) = 3iz + 2$.\\
+
+$$3iz + 2 = 3i(x + iy) + 2 = (-3y + 2) + i3x$$
+
+Re$(f) = -3y + 2$ and Im$(f) = i3x$. Also, Re$(f') = 0$ and Im$(f') = 3i$. I notice the same thing as in part \textbf{a}.\\
+
+\textbf{38 c)} Make a conjecture about the relationship between real and imaginary parts of $f$ versus $f'$.\\
+
+The real and imaginary parts of $f'$ are the derivatives with respect to the $x$ of the real and imaginary parts of $f$ respectively.
+
+\end{document}
