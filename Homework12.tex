@@ -1,0 +1,59 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Complex Analysis}
+\subtitle{Homework 12: 3.2) 33, 34}
+\author{Kenny Roffo}
+\date{Due October 14, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{33)} Complete the proof to show that if functions $f$ and $g$ are analytic at a point $z_0$ and $f(z_0)=0$, and $g(z_0)=0$, but $g'(z_0)\ne0$, then $\lim_{z\rightarrow z_0}\frac{f(z)}{g(z)} = \frac{f'(z_0)}{g'(z_0)}$.\\
+
+We begin with the hypothesis that $f$ and $g$ are analytic at a point $z_0$. Analyticity at $z_0$ implies $f$ and $g$ are differentiable at $z_0$. Hence both limits
+$$f'(z_0)=\lim_{z\rightarrow z_0}\frac{f(z)-f(z_0)}{z-z_0} \text{\hspace{0.5in}and\hspace{0.5in}} g'(z_0)=\lim_{z\rightarrow z_0}\frac{g(z)-g(z_0)}{z-z_0}$$
+exist. But since $f(z_0)=0, g(z_0)=0$, the foregoing limits are the same as
+$$f'(z_0)=\lim_{z\rightarrow z_0}\frac{f(z))}{z-z_0} \text{\hspace{0.5in}and\hspace{0.5in}} g'(z_0)=\lim_{z\rightarrow z_0}\frac{g(z)}{z-z_0}$$
+Now examine $\lim_{z\rightarrow z_0}\frac{f(z)}{g(z)}$ and finish the proof.\\
+
+\begin{align*}
+  \lim_{z\rightarrow z_0}\frac{f(z)}{g(z)} &= \lim_{z\rightarrow z_0}\frac{f(z)}{g(z)}\cdot\frac{\frac{1}{z-z_0}}{\frac{1}{z-z_0}}\\
+  &= \lim_{z\rightarrow z_0}\frac{\frac{f(z)}{z-z_0}}{\frac{g(z)}{z-z_0}}\\
+  &= \frac{\lim_{z\rightarrow z_0}\frac{f(z)}{z-z_0}}{\lim_{z\rightarrow z_0}\frac{g(z)}{z-z_0}}\\
+  &= \frac{f'(z_0)}{g'(z_0)} \text{\hspace{1in}(Since $g'(z_0)\ne0$)}
+\end{align*}\\
+
+\textbf{34 a)} Justify the equality 
+\begin{align*}
+  \od{}{z}[f(z)g(z)] &= \lim_{\Delta z\rightarrow0}\frac{f(z+\Delta z)g(z+\Delta z) - f(z)g(z)}{\Delta z}\\
+  &= \lim_{\Delta z\rightarrow0}\left[\frac{f(z+\Delta z) - f(z)}{\Delta z}g(z+\Delta z) + f(z)\frac{g(z+\Delta z)-g(z)}{\Delta z}\right]
+\end{align*}\\
+
+I will start with the second form, and multiply through and simplify:
+\begin{align*}
+  &\lim_{\Delta z\rightarrow0}\left[\frac{f(z+\Delta z) - f(z)}{\Delta z}g(z+\Delta z) + f(z)\frac{g(z+\Delta z)-g(z)}{\Delta z}\right]\\
+  &= \lim_{\Delta z\rightarrow0}\left[\frac{f(z+\Delta z)g(z+\Delta z) - f(z)g(z+\Delta z)}{\Delta z} + \frac{f(z)g(z+\Delta z)-f(z)g(z)}{\Delta z}\right]\\
+  &= \lim_{\Delta z\rightarrow0}\frac{f(z+\Delta z)g(z+\Delta z) - f(z)g(z+\Delta z) + f(z)g(z+\Delta z) - f(z)g(z)}{\Delta z}\\
+  &= \lim_{\Delta z\rightarrow0}\frac{f(z+\Delta z)g(z+\Delta z) - f(z)g(z)}{\Delta z}\\
+\end{align*}
+
+Thus the equality is justified.\\
+
+\textbf{34 b)} Use the definition of a complex function being continuous at a point to justify $\lim_{\Delta z\rightarrow0}g(z+\Delta z)=g(z)$.\\
+
+Since $g$ is differentiable at $z$, it is continuous at $z$, so $\lim_{z'\rightarrow z}g(z') = g(z)$. As $\Delta z\rightarrow 0$, we see $(z + \Delta z)\rightarrow z$, so we have
+\begin{align*}
+  \lim_{\Delta z\rightarrow 0}g(z+\Delta z) &= \lim_{z'\rightarrow z}g(z')\\
+  &= g(z)
+\end{align*}\\
+
+\textbf{34 c)} Use that the limit of a sum is the sum of the limits, and the limit of a produt is the product of the limits to finish the proof.\\
+
+\begin{align*}
+  &\lim_{\Delta z\rightarrow0}\left[\frac{f(z+\Delta z) - f(z)}{\Delta z}g(z+\Delta z) + f(z)\frac{g(z+\Delta z)-g(z)}{\Delta z}\right]\\
+  &= \lim_{\Delta z\rightarrow0}\left[\frac{f(z+\Delta z) - f(z)}{\Delta z}\right]\lim_{\Delta z\rightarrow0}\left[g(z+\Delta z)\right] + \lim_{\Delta z\rightarrow0}\left[f(z)\right]\lim_{\Delta z\rightarrow0}\left[\frac{g(z+\Delta z)-g(z)}{\Delta z}\right] \text{\hspace{.4in}By limit laws}\\
+  &= f'(z)g(z) + f(z)g'(z) \text{\hspace{.4in}By part b}
+\end{align*}
+\end{document}
