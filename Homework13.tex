@@ -1,0 +1,130 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Complex Analysis}
+\subtitle{Homework 13: 3.3) 24, 40}
+\author{Kenny Roffo}
+\date{Due October 19, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{24 a)} Show the function $f(z) = x^2 - x + y + i(y^2 - 5y - x)$ is not analytic at any point but is differentiable along the curve $y=x+2$\\
+
+We see $u(x,y) = x^2 - x + y$ and $v(x,y) = y^2 - 5y - x$. So
+\begin{align*}
+  u_x &= 2x - 1\\
+  u_y &= 1\\
+  v_x &= -1\\
+  v_y &= 2y - 5
+\end{align*}
+
+In order for the function to be differentiable at a point $z$, the C-R equations must hold. It is true for all points in the complex plane that $u_y = -v_x$, but let us examine the second C-R equation, $u_x = v_y$.
+\begin{align*}
+  &2x - 1 = 2y - 5\\
+  \iff& 2x + 4 = 2y\\
+  \iff& x + 2 = y
+\end{align*}
+Therefore, the C-R equations hold at a point $z$ if and only if $z$ is on the line $y = x + 2$. Thus, $f$ is not differentiable (and thus not analytic) at any point not on the line $y=x+2$. Also, since every neighborhood of every point on the line $y = x + 2$ contains a point not on the line $y=x+2$, every neighborhood of every point on the line contains a point which is not differentiable, thus $f$ is not analytic at any point on the line $y=x+2$. Therefore, $f$ is nowhere analytic.
+
+Note that $u$, $v$, $u_x$, $u_y$, $v_x$, and $v_y$ are all polynomial (or constant) functions. Then all $u$ and $v$ and their first order partial derivatives are all continuous. Since this is true, and the C-R equations hold for points on the line $y=x+2$, the function $f$ is differentiable on the line $y=x+2$.
+\pagebreak
+
+\textbf{24 b)} Find the derivative of $f(z) = x^2 - x + y + i(y^2 - 5y - x)$ on the curve $y=x+2$.\\
+Using the fact that $f'(z) = \pd{u}{z}+i\pd{v}{x}$ we find the derivative:
+
+\begin{align*}
+  f'(z) &= \pd{u}{z}+i\pd{v}{x}\\
+  &= 2x-1 + i(-1)\\
+  &= 2x - 1 - i
+\end{align*}\\
+
+\textbf{40)} Consider the function 
+$$f(z) = 
+\begin{cases} 
+  0 & z = 0 \\
+  \frac{z^5}{|z^4|} & z\ne0
+\end{cases}$$
+
+\textbf{   a)} Express $f$ in the form $f(z) = u(x,y) + iv(x,y)$\\
+
+We first express $\frac{z^5}{|z^4|}$ in this form:
+
+\begin{align*}
+  \frac{z^5}{|z^4|} &= \frac{(x+iy)^5}{|(x+iy)^4|}\\
+  &= \frac{x^5 + 5x^4iy + 10x^3i^2y^2 + 10x^2i^3y^3 + 5xi^4y^4 + i^5y^5}{|x^4 + 4x^3iy + 6x^2i^2y^2 + 4xi^3y^3 + i^4y^4|}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)+i(5x^4y - 10x^2y^3 + y^5)}{|(x^4-6x^2y^2+y^4)+i(4x^3y - 4xy^3)|}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)+i(5x^4y - 10x^2y^3 + y^5)}{\sqrt{(x^4-6x^2y^2+y^4)^2+(4x^3y - 4xy^3)^2}}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)+i(5x^4y - 10x^2y^3 + y^5)}{\sqrt{x^8+4x^6y^2 + 6x^4y^4 + 4x^2y^6 + y^8}} \text{\hspace{0.5in}\small{After a bit of algebra}}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)+i(5x^4y - 10x^2y^3 + y^5)}{\sqrt{(x^2+y^2)^4}}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)+i(5x^4y - 10x^2y^3 + y^5)}{(x^2+y^2)^2}\\
+  &= \frac{(x^5 - 10x^3y^2 + 5xy^4)}{(x^2+y^2)^2}+i\frac{(5x^4y - 10x^2y^3 + y^5)}{(x^2+y^2)^2}
+\end{align*}\\
+
+Now we have $f(z)$ given by
+\begin{displaymath}
+  f(z) = 
+  \begin{cases} 
+    0 & z = 0 \\
+    \left(\frac{x^5 - 10x^3y^2 + 5xy^4}{{(x^2+y^2)^2}}\right) + i\left(\frac{5x^4y - 10x^2y^3 + y^5}{{(x^2+y^2)^2}}\right) & z\ne0
+  \end{cases}
+\end{displaymath}
+\pagebreak
+
+\textbf{   b)} Show that $f$ is not differentiable at the origin.\\
+
+Consider the limit as $f$ approaches $0$ along the imaginary axis ($y=0$):
+
+\begin{align*}
+\lim_{x\rightarrow0}\frac{(x+i(0))^5}{|(x+i(0))^4|} &= \lim_{x\rightarrow0}\frac{x^5}{|x^4|}\\
+  &= \lim_{x\rightarrow0}\frac{x^5}{x^4}\\
+  &= \lim_{x\rightarrow0}x\\
+  &= 0
+\end{align*}
+
+Now consider the limit as $f$ approaches $0$ along the line $y=x+1$:
+
+\begin{align*}
+  \lim_{x\rightarrow0}\frac{(x+i(x+1))^5}{|(x+i(x+1))^4|} &= \lim_{x\rightarrow0}\frac{(0+i(0+1))^5}{|(0+i(0+1))^4|}\\
+  &= \lim_{x\rightarrow0}\frac{i^5}{|i^4|}\\
+  &= \lim_{x\rightarrow0}\frac{i^5}{1}\\
+  &= i^5
+\end{align*}
+
+So we get different values for the limit depending on which path of approach we choose, thus the limit does not exist. This means that the $f$ is discontinuous at 0, thus $f$ is not differentiable at 0.\pagebreak
+
+\textbf{   c)} Show that the Cauchy-Riemann equations are satisfied at the origin.\\
+
+We begin by finding the partial derivatives $u_x, u_y, v_x$ and $v_y$ at the point 0. At 0, $u = v = 0$. Using the limit definition for partial derivatives, we see
+
+\begin{align*}
+  u_x &= \lim_{\Delta x\rightarrow0}\frac{u(x+\Delta x,y) - u(x,y)}{\Delta x}\\
+  &= \lim_{\Delta x\rightarrow0}\frac{0 - 0}{\Delta x}\\
+  &= \lim_{\Delta x\rightarrow0}0\\
+  &= 0
+\end{align*}
+
+\begin{align*}
+  u_y &= \lim_{\Delta y\rightarrow0}\frac{u(x,y+\Delta y) - u(x,y)}{\Delta y}\\
+  &= \lim_{\Delta y\rightarrow0}\frac{0 - 0}{\Delta y}\\
+  &= \lim_{\Delta y\rightarrow0}0\\
+  &= 0
+\end{align*}
+
+\begin{align*}
+  v_x &= \lim_{\Delta x\rightarrow0}\frac{v(x+\Delta x,y) - v(x,y)}{\Delta x}\\
+  &= \lim_{\Delta x\rightarrow0}\frac{0 - 0}{\Delta x}\\
+  &= \lim_{\Delta x\rightarrow0}0\\
+  &= 0
+\end{align*}
+
+\begin{align*}
+ v_y &= \lim_{\Delta y\rightarrow0}\frac{v(x,y+\Delta y) - v(x,y)}{\Delta y}\\
+  &= \lim_{\Delta y\rightarrow0}\frac{0 - 0}{\Delta y}\\
+  &= \lim_{\Delta y\rightarrow0}0\\
+  &= 0
+\end{align*}
+
+Since 0 = 0 = -0, the Cauchy-Riemann equations are satisfied for $f$ at $z=0$.
+\end{document}
