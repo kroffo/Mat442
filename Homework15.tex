@@ -1,0 +1,72 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+\newcommand{\Ln}{\text{Ln}}
+\newcommand{\Arg}{\text{Arg}}
+\newcommand{\Rp}{\text{Re}}
+
+\title{Complex Analysis}
+\subtitle{Homework 15: 4.1) 32, 48, 49}
+\author{Kenny Roffo}
+\date{Due November 2, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{32)} Write the principal value of $\Ln\left[(1+i)^4\right]$ in the form $a+ib$:\\
+
+We know for a complex number $z$ that $\Ln(z) = \log_e|z| + i\Arg(z)$. First let us find $\log_e|z|$.
+\begin{align*}
+  \log_e|z| &= \log_e\left|(1+i)^4\right|\\
+  &= \log_e\left[|1+i|^4\right]\\
+  &= \log_e\sqrt{2}^4\\
+  &= \log_e4
+\end{align*}
+We will keep this in exact form to preserve meaning. Now we find $\Arg(z)$. First we find $\Rp(z)$.
+\begin{align*}
+  (1+i)^4 &= 1 + 4i + 6i^2 + 4i^3 + 1\\
+  &= 2 - 6 + 4i - 4i\\
+  &= -4
+\end{align*}
+So $\Rp(z) = -4$. Now we find $\Arg(z)$ using $\Rp(z) = |z|\cos(\theta)$ (Note that we already found $|z| = 4$):
+\begin{align*}
+  \theta &= \cos^{-1}\left(\frac{\Rp(z)}{|z|}\right)\\
+  &= \cos^{-1}\left(\frac{-4}{4}\right)\\
+  &= \cos^{-1}\left(-1\right)\\
+  &= \pi
+\end{align*}
+Thus $Arg(z) = \pi$, and so the principal value of $\Ln\left[(1+i)^4\right]$ is $$\Ln(z) = \log_e4 + \pi i$$\pagebreak
+
+\textbf{48)} Using de Moivre's formula, $(\cos \theta + i\sin \theta)^n = \cos(n\theta) + i\sin(n\theta)$, prove that $\left(e^z\right)^n = e^{nz}$ where $n \in \mathbb{Z}$.\\
+
+Let $z = x + iy$ be an element of $\mathbb{C}$ and $n \in \mathbb{Z}$. We see
+\begin{align*}
+  \left(e^z\right)^n &= \left(e^x\left(\cos(y) + i\sin(y)\right)\right)^n\\
+  &= e^{nx}\left(\cos(y) + i\sin(y)\right)^n\\
+  &= e^{nx}\left(\cos(ny) + i\sin(ny)\right)\\
+  &= e^{nx + iny}\\
+  &= e^{n(x+iy)}\\
+  &= e^{nz}
+\end{align*}
+
+That is, $\left(e^z\right)^n = e^{nz}$.\\
+
+\textbf{49)} Determine where the complex function $e^{\overline{z}}$ is analytic.\\
+
+We see
+\begin{align*}
+  e^{\overline{z}} &= e^{x-iy}\\
+  &= e^x\cos(y) + ie^x\sin(y)\\
+\end{align*}
+
+Thus for $f(z) = e^{\overline{z}}$, $u(x,y) = e^x\cos(y)$ and $v(x,y) = e^x\sin(y)$. We see the first order partial derivatives:
+$$ u_x = e^x\cos(y) \text{\hspace{1in}} v_x = e^x\sin(y)$$
+$$ u_y = -e^x\sin(y) \text{\hspace{1in}} v_y = e^x\cos(y)$$
+We see the Cauchy-Riemann equations state that $$u_x = e^x\cos(y) = e^x\cos(y) = v_y$$ and $$u_y = -e^x\sin(y) = -e^x\sin(y) = -v_x$$ thus the Cauchy-Riemann equations are satisfied everywhere in the complex plane.
+
+Note that the first order partial derivatives of $u$ and $v$ are also continuous. Let us examine the second order partial derivatives:
+$$ u_{xx} = e^x\cos(y) \text{\hspace{1in}} v_{xx} = e^x\sin(y)$$
+$$ u_{yy} = -e^x\cos(y) \text{\hspace{1in}} v_{yy} = -e^x\sin(y)$$
+$$ u_{xy} = -e^x\sin(y) \text{\hspace{1in}} v_{xy} = e^x\cos(y)$$
+Since all of the first and second order partials of $u$ and $v$ are continuous, and $u$ and $v$ satisfy the C-R equations, $u$ and $v$ are harmonic conjugates. Therefore, $f(z) = u(x,y) + iv(x,y) = e^{\overline{z}}$ is analytic in $\mathbb{C}$.
+\end{document}
