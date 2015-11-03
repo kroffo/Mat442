@@ -1,0 +1,93 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+\newcommand{\Ln}{\text{Ln}}
+\newcommand{\Arg}{\text{Arg}}
+\newcommand{\Rp}{\text{Re}}
+
+\title{Complex Analysis}
+\subtitle{Homework 16: 3.4) 38, 39}
+\author{Kenny Roffo}
+\date{Due November 4, 2015}
+
+\begin{document}
+\maketitle
+
+\textbf{38)} Suppose $x=r\cos\theta, y=r\sin\theta$ and $f(z) = u(x,y)+iv(x,y)$. Show that
+$$u_r = u_x\cos\theta + u_y\sin\theta \text{\hspace{1in}} u_\theta = -u_xr\sin\theta + u_yr\cos\theta$$ and
+$$v_r = v_x\cos\theta + v_y\sin\theta \text{\hspace{1in}} v_\theta = -v_xr\sin\theta + v_yr\cos\theta$$ then deduce the Cauchy-Riemann equations in polar coordinates.\\
+
+From multivariable calculus we know that for a function $g(x,y)$, $$\pd{g}{z} = \pd{g}{x}\pd{x}{z} + \pd{g}{y}\pd{y}{z}$$.
+
+Thus we have
+
+\begin{align*}
+  u_r &= \pd{u}{x}\pd{x}{r} + \pd{u}{y}\pd{y}{r}\\
+  &= u_x\cos\theta + u_y\sin\theta\\
+\end{align*}
+
+By the exact same calculation, $v_r = v_x\cos\theta + v_y\sin\theta$. We also see
+
+\begin{align*}
+  u_\theta &= \pd{u}{x}\pd{x}{\theta} + \pd{u}{y}\pd{y}{\theta}\\
+  &= -u_xr\sin\theta + u_yr\cos\theta
+\end{align*}
+
+and by the same calculation $v_\theta = -v_x\sin\theta + v_y\cos\theta$.
+
+Now we must find the Cauchy-Riemann equations' polar form. The C-R equations state $u_x=v_y$ and $u_y=-v_x$. We see
+
+\begin{align*}
+  u_r &= u_x\cos\theta + u_y\sin\theta\\
+  &= v_y\cos\theta -v_x\sin\theta\\
+  &= \frac{1}{r}\left(-v_xr\sin\theta+v_yr\cos\theta\right)\\
+  &= \frac{1}{r}v_\theta
+\end{align*}
+
+and also
+
+\begin{align*}
+  v_r &= v_x\cos\theta + v_y\sin\theta\\
+  &= -u_y\cos\theta + u_x\sin\theta\\
+  &= -\frac{1}{r}\left(-u_xr\sin\theta + u_yr\cos\theta\right)\\
+  &= -\frac{1}{r}u_\theta
+\end{align*}
+
+so the C-R equations in polar form are $$u_r = \frac{1}{r}v_\theta \text{\hspace{0.5in} and \hspace{0.5in}} v_r = -\frac{1}{r}u_\theta$$\\
+
+\textbf{39)} Suppose the function $f(z) = u(r,\theta) + iv(r,\theta)$ is differentiable at a point $z$ whose polar coordinates are $(r,\theta)$. Solve the the equations derived in \textbf{38} for $u_x$ and $v_x$ respectively. Then show that the derivative of $f$ at $(r,\theta)$ is
+$$f'(z) = (\cos\theta-i\sin\theta)\left(u_r+iv_r\right)=e^{-i\theta}\left(u_r+iv_r\right)$$\\
+
+Let us start by examining $u_x$. Solving $u_r$ for $u_x$ we see $$u_x = \frac{u_r - u_y\sin\theta}{\cos\theta}$$ and since $-u_y=v_x$ we can plug in $v_x$
+$$u_x = \frac{u_r + v_x\sin\theta}{\cos\theta}$$ Now let's find $v_x$ from $v_r$:
+$$v_x = \frac{v_r - v_y\sin\theta}{\cos\theta} = \frac{v_r - u_x\sin\theta}{\cos\theta}$$
+Now we substitute for $v_x$:
+$$u_x = \frac{u_r + \left[\frac{v_r - u_x\sin\theta}{\cos\theta}\right]\sin\theta}{\cos\theta} = \frac{u_r}{\cos\theta} + \frac{v_r\sin\theta}{\cos^2\theta} - \frac{u_x\sin^2\theta}{\cos^2\theta}$$
+Now we do a bit of algebra to get $u_x$:
+\begin{align*}
+  &u_x\cos^2\theta = u_r\cos\theta + v_r\sin\theta + u_x\sin^2\theta\\
+  \implies& u_x\left(\cos^2\theta + \sin^2\theta\right) = u_r\cos\theta + v_r\sin\theta\\
+  \implies& u_x = u_r\cos\theta + v_r\sin\theta
+\end{align*}
+
+Now we must find $v_x$. We already found an expression for $v_x$ from $v_r$. Since $v_y = u_x$, we can simply plug our expression for $u_x$ from $u_r$ into $v_x$:
+$$v_x = \frac{v_r - \left[\frac{u_r + v_x\sin\theta}{\cos\theta}\right]\sin\theta}{\cos\theta} = \frac{v_r - \frac{u_r\sin\theta}{\cos\theta} + \frac{v_x\sin^2\theta}{\cos\theta}}{\cos\theta}$$
+Now we again just do some algebra to find $v_x$:
+\begin{align*}
+  &v_x\cos^2\theta = v_r\cos\theta - u_r\sin\theta + v_x\sin^2\theta\\
+  \implies& v_x\left(\cos^2\theta + \sin^2\theta\right) = v_r\cos\theta - u_r\sin\theta\\
+  \implies& v_x = v_r\cos\theta - u_r\sin\theta
+\end{align*}
+
+Now that we have $u_x$ and $v_x$, we can use the fact that for a function $f(x,y) = u(x,y) + iv(x,y)$ which is differentiable at a point $z$, the derivative at $z$ is given by $$f'(z) = u_x + iv_x$$ to find the derivative of a function which is differentiable at a point $z$ in polar coordinates:
+\begin{align*}
+  f'(z) &= u_x + iv_x\\
+  &= \left(u_r\cos\theta + v_r\sin\theta\right) + i\left(v_r\cos\theta - u_r\sin\theta\right)\\
+  &= (\cos\theta - i\sin\theta)(u_r + iv_r)\\
+  &= \left(\cos\theta + i\sin(-\theta)\right)(u_r + iv_r)\\
+  &= e^{-i\theta}(u_r + iv_r)
+\end{align*}
+Therefore for a function $f(r,\theta) = u(r,\theta) + iv(r,\theta)$ the derivative at a point $z=re^{i\theta}$ (assuming $f$ is differentiable at $z$) is given by
+$$ f'(z) = e^{-i\theta}(u_r + iv_r)$$
+
+\end{document}
